@@ -1,217 +1,224 @@
-/* Global stilreset og fontvalg */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Share Tech Mono", monospace;
-      }
+/* Global reset and font settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Share Tech Mono", monospace;
+}
 
-      /* Fullskjerms visning med jevn scrolling */
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-      }
+/* CSS custom properties */
+:root {
+  --box-border-radius: 8px;
+  --box-margin: 10px;
+}
 
-      body {
-        scroll-snap-type: y mandatory;
-      }
+/* Fullscreen view with smooth scrolling */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-      /* Seksjoner dekker hele høyden av skjermen */
-      section {
-        height: 100vh;
-        scroll-snap-align: start;
-        position: relative;
-        padding-top: 60px; /* Plass for navigasjonsmeny */
-      }
+body {
+  scroll-snap-type: y mandatory;
+}
 
-      /* Navigasjonsmeny */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #000;
-        padding: 1px 20px;
-        z-index: 10;
-        color: white;
-      }
+/* Section styles */
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  padding-top: 60px; /* For navigation */
+}
 
-      /* Logo og lenker i navigasjonsmenyen */
-      nav .logo {
-        display: flex;
-        align-items: center;
-      }
-      nav .logo:hover {
-        color: #ff7e5f;
-        cursor: none;
-      }
+/* Navigation menu */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  padding: 1px 20px;
+  z-index: 10;
+  color: white;
+}
 
-      nav .logo img {
-        height: 40px;
-        margin-right: 10px;
-      }
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+nav .logo:hover {
+  color: #ff7e5f;
+  cursor: none;
+}
+nav .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
 
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
 
-      nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      nav ul li a:hover {
-        color: #ff7e5f;
-      }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav ul li a:hover {
+  color: #ff7e5f;
+}
 
-      h1 {
-        color: white;
-        font-size: 6rem;
-        margin-bottom: 20px;
-      }
+/* Header styles */
+h1 {
+  color: white;
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
 
-      /* Første seksjon: delt mellom canvas og tekst */
-      #section1 {
-        display: flex;
-      }
+/* Section 1: Canvas and text */
+#section1 {
+  display: flex;
+}
+#canvas-container {
+  width: 66.66%;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+.hero-text {
+  width: 33.33%;
+  padding: 40px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.hero-p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
 
-      /* Three.js canvas vises her */
-      #canvas-container {
-        width: 66.66%;
-        height: 100%;
-        background-color: #f0f0f0;
-      }
+/* Button styles – unified for both classes */
+.find-out-more,
+.find-out-more2 {
+  padding: 10px 20px;
+  border: 3px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+.find-out-more:hover,
+.find-out-more2:hover {
+  border-color: #ff7e5f;
+}
 
-      /* Tekstdel ved siden av canvas */
-      .hero-text {
-        width: 33.33%;
-        padding: 40px;
-        background-color: #000;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: white;
-        text-align: center;
-      }
+/* Fade-in animations */
+.hero-text h1,
+.hero-text p,
+.hero-text button {
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+}
+.hero-text h1 { animation-delay: 5s; }
+.hero-text p { animation-delay: 7s; }
+.hero-text button { animation-delay: 10s; }
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
 
-      .hero-p {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-      }
+/* Sections 2 and 3 */
+#section2,
+#section3 {
+  display: flex;
+}
 
-      /* Stilisert knapp */
-      .find-out-more {
-        display: inline-block;
-        margin: 50px;
-        padding: 10px 20px;
-        border: 3px solid white;
-        border-radius: 10px;
-        background: transparent;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
+/* Column styles */
+.column1 {
+  width: 66.66%;
+  padding: 20px;
+  background-color: #075770;
+  margin: 10px;
+  border-radius: var(--box-border-radius);
+  display: flex;
+  flex-direction: column;
+}
+.column2 {
+  width: 33.33%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
 
-      .find-out-more:hover {
-        border-color: #ff7e5f;
-      }
+/* Hero text in right column */
+.hero-text2 {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+.hero-p2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
 
-      /* Fade-in animasjoner */
-      .hero-text h1,
-      .hero-text p,
-      .hero-text button {
-        opacity: 0;
-        animation: fadeIn 5s forwards;
-      }
+/* Image container */
+.image-container {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 33%;
+}
+.img-box {
+  flex: 1;
+  margin: var(--box-margin);
+  border-radius: var(--box-border-radius);
+  overflow: hidden;
+  background-color: #999;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-      .hero-text h1 {
-        animation-delay: 5s;
-      }
+/* Text container below images */
+.text-container {
+  flex: 1;
+  margin-top: var(--box-margin);
+  border-radius: var(--box-border-radius);
+  background: #ddd;
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+.text-container h3,
+.text-container p {
+  margin-bottom: 15px;
+}
 
-      .hero-text p {
-        animation-delay: 7s;
-      }
-
-      .hero-text button {
-        animation-delay: 10s;
-      }
-
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* Andre seksjon: tre kolonner */
-      #section2 {
-        display: flex;
-        background-color: #000000;
-      }
-
-      /* Tredje seksjon */
-      #section3 {
-        background-color: #aaa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .column2 {
-        width: 33.33%;
-        background-color: #000000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0; /* optional: keeps text perfectly centered */
-      }
-      .column1 {
-        width: 66.66%;
-        padding: 20px;
-        background-color: #b9b9b9;
-        margin: 10px;
-        border-radius: 8px;
-      }
-      .hero-text2 {
-        width: 100%; /* fill the column */
-        max-width: 300px; /* optional: limits how wide the content gets */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
-        color: white;
-        text-align: center;
-      }
-
-      .hero-p2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-      }
-
-      /* Stilisert knapp */
-      .find-out-more2 {
-        padding: 10px 20px;
-        border: 3px solid white;
-        border-radius: 10px;
-        background: transparent;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        width: 100%; /* makes it expand the full width of hero-text2 */
-        max-width: 200px; /* but not too big */
-        text-align: center;
-      }
-
-      .find-out-more2:hover {
-        border-color: #ff7e5f;
-      }
+/* Section 3 background color */
+#section3 {
+  background-color: #ddd;
+}
