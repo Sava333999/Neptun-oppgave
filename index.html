@@ -128,46 +128,56 @@
     </style>
   </head>
   <body>
+    <!-- Navigasjonsmeny med logo og lenker -->
     <nav>
       <div class="logo">
-        <img src="logo-placeholder.png" alt="Logo" />
-        <span>Your Brand</span>
+        <img src="neptun1.png" alt="Logo" />
+        <span style="font-weight: bold">Neptune</span>
       </div>
       <ul>
         <li><a href="#section1">Home</a></li>
-        <li><a href="#section2">Info</a></li>
-        <li><a href="#section3">Visits</a></li>
+        <li><a href="#section2">Planet</a></li>
+        <li><a href="#section3">Moons</a></li>
       </ul>
     </nav>
 
+    <!-- Første seksjon: 3D-visning + tekst -->
     <section id="section1">
       <div id="canvas-container"></div>
       <div class="hero-text">
-        <h1>Main Heading</h1>
-        <p>This is your hero section with a headline and descriptive text.</p>
+        <h1>Neptune</h1>
+        <p class="hero-p">The Solar System's Windiest Planet</p>
+        <!-- Knapp som scroller ned til neste seksjon -->
+        <button
+          class="find-out-more"
+          onclick="document.getElementById('section2').scrollIntoView({behavior: 'smooth'})"
+        >
+          Find Out More
+        </button>
       </div>
-      <div
-        class="parallax"
-        style="background-image: url('parallax1.jpg')"
-      ></div>
     </section>
 
+    <!-- Andre seksjon: Informasjonskolonner -->
     <section id="section2">
-      <div class="column">Column 1 Content</div>
-      <div class="column">Column 2 Content</div>
-      <div class="column">Column 3 Content</div>
-      <div
-        class="parallax"
-        style="background-image: url('parallax2.jpg')"
-      ></div>
+      <div class="column1">Column 1 Content</div>
+      <div class="column2">
+        <div class="hero-text2">
+          <h1>Moons</h1>
+          <p class="hero-p2">Discover Neptune's 16 Satellites</p>
+          <!-- Knapp som scroller ned til neste seksjon -->
+          <button
+            class="find-out-more2"
+            onclick="document.getElementById('section3').scrollIntoView({behavior: 'smooth'})"
+          >
+            Find Out More
+          </button>
+        </div>
+      </div>
     </section>
 
+    <!-- Tredje seksjon: Placeholder -->
     <section id="section3">
-      <div
-        class="parallax"
-        style="background-image: url('parallax3.jpg')"
-      ></div>
-      <!-- Future content -->
+      <h1 style="color: white">Future content here</h1>
     </section>
 
     <script>
